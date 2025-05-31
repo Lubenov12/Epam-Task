@@ -20,7 +20,12 @@ export const config = {
   // The path of the spec files will be resolved relative from the directory of
   // of the config file unless it's absolute.
   //
-  specs: ["./features/**/*.feature"],
+  specs: [
+    "../features/login.feature",
+    "../features/register.feature",
+    "../features/cart.feature",
+    "../features/product.feature",
+  ],
   // Patterns to exclude.
   exclude: [
     // 'path/to/excluded/files'
@@ -41,7 +46,7 @@ export const config = {
   // and 30 processes will get spawned. The property handles how many capabilities
   // from the same test should run tests.
   //
-  maxInstances: 10,
+  maxInstances: 2,
   //
   // If you have trouble getting all important capabilities together, check out the
   // Sauce Labs platform configurator - a great tool to configure your capabilities:
@@ -49,8 +54,20 @@ export const config = {
   //
   capabilities: [
     {
-      browserName: "chrome",
+      browserName: "chrome", // or 'chromium'
+      "goog:chromeOptions": {
+        args: ["headless", "disable-gpu"],
+      },
     },
+    {
+      browserName: "firefox",
+      "moz:firefoxOptions": {
+        args: ["-headless"],
+      },
+    },
+    //{
+    //   browserName: "safari technology preview", // Safari doesn't support headless
+    // },
   ],
 
   //
@@ -84,7 +101,7 @@ export const config = {
   // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
   // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
   // gets prepended directly.
-  // baseUrl: 'http://localhost:8080',
+  baseUrl: "https://practicesoftwaretesting.com/",
   //
   // Default timeout for all waitFor* commands.
   waitforTimeout: 10000,
@@ -112,7 +129,7 @@ export const config = {
 
   //
   // The number of times to retry the entire specfile when it fails as a whole
-  // specFileRetries: 1,
+  specFileRetries: 2,
   //
   // Delay in seconds between the spec file retry attempts
   // specFileRetriesDelay: 0,
@@ -128,7 +145,13 @@ export const config = {
   // If you are using Cucumber you need to specify the location of your step definitions.
   cucumberOpts: {
     // <string[]> (file/dir) require files before executing features
-    require: ["./features/step-definitions/steps.js"],
+    require: [
+      "./src/features/support/hooks.js",
+      "./src/features/step-definitions/login-steps.js",
+      "./src/features/step-definitions/register-steps.js",
+      "./src/features/step-definitions/cart-steps.js",
+      "./src/features/step-definitions/product-steps.js",
+    ],
     // <boolean> show full backtrace for errors
     backtrace: false,
     // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
@@ -205,8 +228,16 @@ export const config = {
    * @param {Array.<String>} specs        List of spec file paths that are to be run
    * @param {object}         browser      instance of created browser/device session
    */
-  // before: function (capabilities, specs) {
-  // },
+  before: async () => {
+    await browser.reloadSession();
+    await browser.setWindowSize(1280, 800);
+    // const width = await browser.getWindowSize().width;
+    // if (width < 1000) {
+    //   const burgerMenu = $(".navbar-toggler");
+    //   await expect(burgerMenu).toBeDisplayed();
+    //   await burgerMenu.click();
+    // }
+  },
   /**
    * Runs before a WebdriverIO command gets executed.
    * @param {string} commandName hook command name
