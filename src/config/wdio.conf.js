@@ -20,7 +20,11 @@ export const config = {
   // The path of the spec files will be resolved relative from the directory of
   // of the config file unless it's absolute.
   //
-  specs: ["./features/**/*.feature"],
+  specs: [
+    "../features/product.feature",
+    "../features/registration.feature",
+    "../features/login.feature",
+  ],
   // Patterns to exclude.
   exclude: [
     // 'path/to/excluded/files'
@@ -84,7 +88,7 @@ export const config = {
   // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
   // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
   // gets prepended directly.
-  // baseUrl: 'http://localhost:8080',
+  baseUrl: "https://practicesoftwaretesting.com/",
   //
   // Default timeout for all waitFor* commands.
   waitforTimeout: 10000,
@@ -128,7 +132,11 @@ export const config = {
   // If you are using Cucumber you need to specify the location of your step definitions.
   cucumberOpts: {
     // <string[]> (file/dir) require files before executing features
-    require: ["./features/step-definitions/steps.js"],
+    require: [
+      "./src/features/step-definitions/product-steps.js",
+      "./src/features/step-definitions/login-steps.js",
+      "./src/features/step-definitions/registration-steps.js",
+    ],
     // <boolean> show full backtrace for errors
     backtrace: false,
     // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
@@ -205,8 +213,16 @@ export const config = {
    * @param {Array.<String>} specs        List of spec file paths that are to be run
    * @param {object}         browser      instance of created browser/device session
    */
-  // before: function (capabilities, specs) {
-  // },
+  before: async () => {
+    await browser.reloadSession();
+    await browser.setWindowSize(1280, 800);
+    // const width = await browser.getWindowSize().width;
+    // if (width < 1000) {
+    //   const burgerMenu = $(".navbar-toggler");
+    //   await expect(burgerMenu).toBeDisplayed();
+    //   await burgerMenu.click();
+    // }
+  },
   /**
    * Runs before a WebdriverIO command gets executed.
    * @param {string} commandName hook command name
