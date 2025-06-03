@@ -20,7 +20,9 @@ export const config = {
   // The path of the spec files will be resolved relative from the directory of
   // of the config file unless it's absolute.
   //
+
   specs: ["../test/**/*.spec.js"],
+
   // Patterns to exclude.
   exclude: [
     // 'path/to/excluded/files'
@@ -121,6 +123,7 @@ export const config = {
   //
   // Make sure you have the wdio adapter package for the specific framework installed
   // before running any tests.
+
   framework: "mocha",
 
   //

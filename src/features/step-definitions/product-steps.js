@@ -8,11 +8,13 @@ const existingProd = "Pliers";
 const nonExistingProd = "Scissors";
 When("I search for a product that exists", async () => {
   await $("#search-query").setValue(existingProd);
+
   await $("button[data-test='search-submit']").click();
 });
 
 When("I search for a product that does not exist", async () => {
   await $("#search-query").setValue(nonExistingProd);
+
   await $("button[data-test='search-submit']").click();
 });
 
@@ -21,6 +23,7 @@ Then("I should see the product in the search results", async () => {
   await expect(card).toBeDisplayed();
   const regex = new RegExp(existingProd, "i");
   await expect(card).toHaveText(regex);
+
 });
 
 Then("I should be able to view the product details", async () => {

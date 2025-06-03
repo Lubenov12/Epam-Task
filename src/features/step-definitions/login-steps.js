@@ -25,6 +25,7 @@ When(
 Then("I should see my account dashboard and url", async () => {
   const accountDashboard = $(".btn-group-vertical");
   await accountDashboard.waitForDisplayed({ timeout: 3000 });
+
 });
 
 Then("I should see an error message {string}", async (errorMessage) => {
@@ -34,5 +35,6 @@ Then("I should see an error message {string}", async (errorMessage) => {
 });
 
 Then("I should remain on the login page", async () => {
-  await expect(browser).toHaveUrl(/auth\/login/);
+ await expect(browser).toHaveUrl(/auth\/login/);
+
 });
