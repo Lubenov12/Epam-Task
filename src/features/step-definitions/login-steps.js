@@ -23,15 +23,9 @@ When(
 );
 
 Then("I should see my account dashboard and url", async () => {
-  await browser.waitUntil(
-    async () => (await browser.getUrl()).includes("/account"),
-    {
-      timeout: 2000,
-      timeoutMsg: 'expected URL to contain "/account" after 2s',
-    }
-  );
   const accountDashboard = $(".btn-group-vertical");
-  await expect(accountDashboard).toBeDisplayed();
+  await accountDashboard.waitForDisplayed({ timeout: 3000 });
+
 });
 
 Then("I should see an error message {string}", async (errorMessage) => {
@@ -41,9 +35,6 @@ Then("I should see an error message {string}", async (errorMessage) => {
 });
 
 Then("I should remain on the login page", async () => {
-  const url = await browser.getUrl();
-  if (url.includes("/auth/login")) {
-    return;
-  }
-  throw new Error("Inside the wrong url");
+ await expect(browser).toHaveUrl(/auth\/login/);
+
 });

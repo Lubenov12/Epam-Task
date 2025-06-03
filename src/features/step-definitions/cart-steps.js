@@ -1,7 +1,10 @@
 // Step definitions for cart.feature
 import { Given, When, Then } from "@wdio/cucumber-framework";
 
-Given("I am on the home page", async () => {
+
+Given("I am already on the home page", async () => {
+
+
   await browser.url("/");
 });
 
@@ -17,14 +20,16 @@ Then("I open the product page", async () => {
 
 Then("I add it to the cart", async () => {
   const cartBtn = $("#btn-add-to-cart");
-  await expect(cartBtn).toBeDisplayed();
+
+  await cartBtn.waitForDisplayed({ timeout: 2000 });
+
   await cartBtn.click();
 });
 
 Then("The cart logo shouldn't be hidden", async () => {
   const cart = $("a[aria-label='cart']");
   const itemCount = $("#lblCartCount");
-  await expect(cart).toBeDisplayed();
+  await cart.waitForDisplayed({ timeout: 2000 });
   await expect(itemCount).toHaveText("1");
 });
 
@@ -38,16 +43,17 @@ Given("I have a product in my cart", async () => {
 
 When("I remove the product from the cart", async () => {
   await browser.url("/checkout");
-  const removeItemBtn = $("svg[data-icon='xmark']");
-  await expect(removeItemBtn).toBeDisplayed();
+
+  const removeItemBtn = $("a.btn-danger");
+  await removeItemBtn.waitForDisplayed({ timeout: 5000 });
+
   await removeItemBtn.click();
 });
 
 Then("The cart icon should be hidden", async () => {
   const cart = $("a[aria-label='cart']");
-  await browser.pause(2000);
-  const exists = await cart.isExisting();
-  expect(exists).toBe(false);
+  await cart.waitForExist({ timeout: 5000, reverse: true });
+
 });
 
 When("I search for a product that is out of stock and open it", async () => {

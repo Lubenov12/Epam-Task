@@ -1,7 +1,8 @@
+@cleanupBasket
 Feature: Shopping Cart
 
   Scenario: Add product to cart
-    Given I am on the home page
+    Given I am already on the home page
     When I search for a product 
     Then I open the product page
     And I add it to the cart
@@ -13,6 +14,6 @@ Feature: Shopping Cart
     Then The cart icon should be hidden
 
     Scenario: Product is out of stock
-      Given I am on the home page
+      Given I am already on the home page
       When I search for a product that is out of stock and open it
       And Add to cart button should be disabled 
