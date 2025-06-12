@@ -20,12 +20,7 @@ export const config = {
   // The path of the spec files will be resolved relative from the directory of
   // of the config file unless it's absolute.
   //
-  specs: [
-    "../features/login.feature",
-    "../features/register.feature",
-    "../features/cart.feature",
-    "../features/product.feature",
-  ],
+  specs: ["../features/**/*.feature"],
   // Patterns to exclude.
   exclude: [
     // 'path/to/excluded/files'
@@ -54,7 +49,7 @@ export const config = {
   //
   capabilities: [
     {
-      browserName: "chrome", // or 'chromium'
+      browserName: "chrome",
       "goog:chromeOptions": {
         args: ["headless", "disable-gpu"],
       },
