@@ -11,12 +11,14 @@ class BasePage {
         return navbar.$("a[data-test='nav-home']");
       case "sign in":
         return navbar.$("a[data-test='nav-sign-in']");
+      case "cart":
+        return navbar.$("a[aria-label='cart']");
       default:
         throw new Error("Unknown link");
     }
   }
   open() {
-    browser.url(this.url);
+    return browser.url(this.url);
   }
 }
 

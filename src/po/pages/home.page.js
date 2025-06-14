@@ -1,20 +1,20 @@
 import { BasePage } from "./base.page";
 
 class HomePage extends BasePage {
-  constructor(url) {
-    super(url);
+  constructor() {
+    super("/");
   }
   filterOptions(option) {
     option = option.toLowerCase();
     const filters = $("#filters");
     switch (option) {
       case "search":
-        return filters.$(".input-group");
+        return filters.$$(".input-group")[2];
       default:
         throw new Error("Incorrect filter");
     }
   }
-  async searchOptions(option) {
+  searchOptions(option) {
     const searchDiv = this.filterOptions("search");
     switch (option) {
       case "type":
@@ -26,6 +26,15 @@ class HomePage extends BasePage {
       default:
         throw new Error("Unknown command");
     }
+  }
+  get firstProduct() {
+    return $("div[data-test='search_completed'] a.card");
+  }
+  get noResults() {
+    return $("div[data-test='no-results']");
+  }
+  get outOfStock() {
+    return $("span[data-test='out-of-stock']");
   }
 }
 

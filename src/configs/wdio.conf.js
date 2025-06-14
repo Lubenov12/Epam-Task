@@ -96,7 +96,7 @@ export const config = {
   // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
   // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
   // gets prepended directly.
-  baseUrl: "https://practicesoftwaretesting.com/",
+  baseUrl: "https://practicesoftwaretesting.com",
   //
   // Default timeout for all waitFor* commands.
   waitforTimeout: 10000,
@@ -141,11 +141,11 @@ export const config = {
   cucumberOpts: {
     // <string[]> (file/dir) require files before executing features
     require: [
-      "./src/features/support/hooks.js",
-      "./src/features/step-definitions/login-steps.js",
-      "./src/features/step-definitions/register-steps.js",
-      "./src/features/step-definitions/cart-steps.js",
-      "./src/features/step-definitions/product-steps.js",
+      //"./src/features/support/hooks.cjs",
+      "./src/features/step-definitions/login-steps.cjs",
+      "./src/features/step-definitions/register-steps.cjs",
+      "./src/features/step-definitions/cart-steps.cjs",
+      "./src/features/step-definitions/product-steps.cjs",
     ],
     // <boolean> show full backtrace for errors
     backtrace: false,

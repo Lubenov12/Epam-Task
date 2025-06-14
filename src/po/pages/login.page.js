@@ -1,8 +1,8 @@
 const { BasePage } = require("./base.page");
 
 class LoginPage extends BasePage {
-  constructor(url) {
-    super(url);
+  constructor() {
+    super("/auth/login");
   }
   get email() {
     return $("input#email");

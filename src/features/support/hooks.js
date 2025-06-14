@@ -1,5 +1,4 @@
-import { Before } from "@wdio/cucumber-framework";
-
+const { Before } = require("@wdio/cucumber-framework");
 Before({ tags: "@cleanupBasket" }, async () => {
   await browser.url("/checkout");
   const basketItems = await $$("tbody tr");
