@@ -1,14 +1,12 @@
 {
-  "name": "Task 1 Epam second attemp",
-  "type": "module",
   "devDependencies": {
-    "@wdio/cli": "^9.14.0",
-    "@wdio/local-runner": "^9.14.0",
-    "@wdio/mocha-framework": "^9.15.0",
-    "@wdio/spec-reporter": "^9.14.0",
-    "chai": "^5.2.0"
+    "supertest": "^7.1.1"
   },
   "scripts": {
-    "wdio": "wdio run ./src/configs/wdio.conf.js"
+    "test": "mocha src/tests/**/*.test.js"
+  },
+  "dependencies": {
+    "chai": "^5.2.0",
+    "mocha": "^11.7.0"
   }
 }
