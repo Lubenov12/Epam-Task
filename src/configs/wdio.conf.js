@@ -60,6 +60,7 @@ export const config = {
         args: ["-headless"],
       },
     },
+
     //{
     //   browserName: "safari technology preview", // Safari doesn't support headless
     // },
@@ -120,7 +121,8 @@ export const config = {
   //
   // Make sure you have the wdio adapter package for the specific framework installed
   // before running any tests.
-  framework: "cucumber",
+
+  framework: "mocha",
 
   //
   // The number of times to retry the entire specfile when it fails as a whole
@@ -167,10 +169,7 @@ export const config = {
     tagExpression: "",
     // <number> timeout for step definitions
     timeout: 60000,
-    // <boolean> Enable this config to treat undefined definitions as warnings.
-    ignoreUndefinedDefinitions: false,
   },
-
   //
   // =====
   // Hooks
