@@ -20,9 +20,7 @@ export const config = {
   // The path of the spec files will be resolved relative from the directory of
   // of the config file unless it's absolute.
   //
-
-  specs: ["../test/**/*.spec.js"],
-
+  specs: ["../features/**/*.feature"],
   // Patterns to exclude.
   exclude: [
     // 'path/to/excluded/files'
@@ -51,17 +49,17 @@ export const config = {
   //
   capabilities: [
     {
-      browserName: "chrome", // or 'chromium'
+      browserName: "chrome",
       "goog:chromeOptions": {
-        args: [], //"headless", "disable-gpu"
+        args: ["headless", "disable-gpu"],
       },
     },
-    // {
-    //   browserName: "firefox",
-    //   "moz:firefoxOptions": {
-    //     args: ["-headless"],
-    //   },
-    // },
+    {
+      browserName: "firefox",
+      "moz:firefoxOptions": {
+        args: ["-headless"],
+      },
+    },
 
     //{
     //   browserName: "safari technology preview", // Safari doesn't support headless
@@ -99,7 +97,7 @@ export const config = {
   // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
   // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
   // gets prepended directly.
-  baseUrl: "https://practicesoftwaretesting.com/",
+  baseUrl: "https://practicesoftwaretesting.com",
   //
   // Default timeout for all waitFor* commands.
   waitforTimeout: 10000,
@@ -128,7 +126,7 @@ export const config = {
 
   //
   // The number of times to retry the entire specfile when it fails as a whole
-  //        specFileRetries: 2,
+  specFileRetries: 2,
   //
   // Delay in seconds between the spec file retry attempts
   // specFileRetriesDelay: 0,
@@ -142,40 +140,34 @@ export const config = {
   reporters: ["spec"],
 
   // If you are using Cucumber you need to specify the location of your step definitions.
-  // cucumberOpts: {
-  //   // <string[]> (file/dir) require files before executing features
-  //   require: [
-  //     "./src/features/support/hooks.js",
-  //     "./src/features/step-definitions/login-steps.js",
-  //     "./src/features/step-definitions/register-steps.js",
-  //     "./src/features/step-definitions/cart-steps.js",
-  //     "./src/features/step-definitions/product-steps.js",
-  //   ],
-  //   // <boolean> show full backtrace for errors
-  //   backtrace: false,
-  //   // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
-  //   requireModule: [],
-  //   // <boolean> invoke formatters without executing steps
-  //   dryRun: false,
-  //   // <boolean> abort the run on first failure
-  //   failFast: false,
-  //   // <string[]> Only execute the scenarios with name matching the expression (repeatable).
-  //   name: [],
-  //   // <boolean> hide step definition snippets for pending steps
-  //   snippets: true,
-  //   // <boolean> hide source uris
-  //   source: true,
-  //   // <boolean> fail if there are any undefined or pending steps
-  //   strict: false,
-  //   // <string> (expression) only execute the features or scenarios with tags matching the expression
-  //   tagExpression: "",
-  //   // <number> timeout for step definitions
-  //   timeout: 60000,
-  //   // <boolean> Enable this config to treat undefined definitions as warnings.
-  //   ignoreUndefinedDefinitions: false,
-  // },
-  mochaOpts: {
-    ui: "bdd",
+  cucumberOpts: {
+    // <string[]> (file/dir) require files before executing features
+    require: [
+      //"./src/features/support/hooks.cjs",
+      "./src/features/step-definitions/login-steps.cjs",
+      "./src/features/step-definitions/register-steps.cjs",
+      "./src/features/step-definitions/cart-steps.cjs",
+      "./src/features/step-definitions/product-steps.cjs",
+    ],
+    // <boolean> show full backtrace for errors
+    backtrace: false,
+    // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
+    requireModule: [],
+    // <boolean> invoke formatters without executing steps
+    dryRun: false,
+    // <boolean> abort the run on first failure
+    failFast: false,
+    // <string[]> Only execute the scenarios with name matching the expression (repeatable).
+    name: [],
+    // <boolean> hide step definition snippets for pending steps
+    snippets: true,
+    // <boolean> hide source uris
+    source: true,
+    // <boolean> fail if there are any undefined or pending steps
+    strict: false,
+    // <string> (expression) only execute the features or scenarios with tags matching the expression
+    tagExpression: "",
+    // <number> timeout for step definitions
     timeout: 60000,
   },
   //
