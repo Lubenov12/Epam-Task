@@ -1,4 +1,3 @@
-@cleanupBasket
 Feature: Shopping Cart
 
   Scenario: Add product to cart

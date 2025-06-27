@@ -1,5 +1,4 @@
 
-@cleanupBasket
 Feature: Product Search
 
   Scenario: Search for an existing product
