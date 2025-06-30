@@ -2,6 +2,11 @@
 
 ## How to Run Tests and Generate Report
 
+Install Allure CLI globally:
+
+```bash
+npm install -g allure-commandline --save-dev
+
 1. Run the tests:
 
 ```bash
