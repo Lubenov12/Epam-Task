@@ -1,7 +1,3 @@
-import { ReportGenerator, HtmlReporter } from "wdio-html-nice-reporter";
-import fs from "fs";
-import path from "path";
-let reportAggregator = null;
 export const config = {
   //
   // ====================
@@ -146,15 +142,9 @@ export const config = {
   reporters: [
     "spec",
     [
-      "html-nice",
+      "allure",
       {
-        outputDir: "./src/configs/logs/html-reports/",
-        filename: "report.html",
-        reportTitle: "Test Report Title",
-        linkScreenshots: false,
-        showInBrowser: true,
-        collapseTests: false,
-        useOnAfterCommandForScreenshot: false,
+        outputDir: "./src/configs/logs/allure-results",
         disableWebdriverStepsReporting: true,
         disableWebdriverScreenshotsReporting: true,
       },
@@ -204,14 +194,14 @@ export const config = {
    * @param {object} config wdio configuration object
    * @param {Array.<Object>} capabilities list of capabilities details
    */
-  onPrepare: function (config, capabilities) {
-    const dir = "./reports/html-reports/";
-    if (fs.existsSync(dir)) {
-      fs.readdirSync(dir).forEach((file) => {
-        fs.unlinkSync(path.join(dir, file));
-      });
-    }
-  },
+  // onPrepare: function (config, capabilities) {
+  //   const dir = "./reports/html-reports/";
+  //   if (fs.existsSync(dir)) {
+  //     fs.readdirSync(dir).forEach((file) => {
+  //       fs.unlinkSync(path.join(dir, file));
+  //     });
+  //   }
+  // },
   /**
    * Gets executed before a worker process is spawned and can be used to initialize specific service
    * for that worker as well as modify runtime environments in an async fashion.
@@ -360,17 +350,17 @@ export const config = {
    * @param {Array.<Object>} capabilities list of capabilities details
    * @param {<Object>} results object containing test results
    */
-  onComplete: function (exitCode, config, capabilities, results) {
-    (async () => {
-      reportAggregator = new ReportGenerator({
-        outputDir: "./src/configs/logs/html-reports/",
-        filename: "report.html",
-        reportTitle: "Test Report Title",
-        collapseTests: false,
-      });
-      await reportAggregator.createReport();
-    })();
-  },
+  // onComplete: function (exitCode, config, capabilities, results) {
+  //   (async () => {
+  //     reportAggregator = new ReportGenerator({
+  //       outputDir: "./src/configs/logs/html-reports/",
+  //       filename: "report.html",
+  //       reportTitle: "Test Report Title",
+  //       collapseTests: false,
+  //     });
+  //     await reportAggregator.createReport();
+  //   })();
+  // },
   /**
    * Gets executed when a refresh happens.
    * @param {string} oldSessionId session ID of the old session
