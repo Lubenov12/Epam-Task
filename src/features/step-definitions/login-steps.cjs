@@ -13,7 +13,7 @@ When(
   async (credentials) => {
     if (credentials == "valid") {
       await pages("login").email.setValue(
-        "customer@practicesoftwaretesting.com"
+        "customer@practicesoftwaretesting.com",
       );
       await pages("login").password.setValue("welcome01");
       await pages("login").loginButton.click();
@@ -21,7 +21,7 @@ When(
     await pages("login").email.setValue("test123@gmail.com");
     await pages("login").password.setValue("test123");
     await pages("login").loginButton.click();
-  }
+  },
 );
 
 Then("I should see my account dashboard and url", async () => {

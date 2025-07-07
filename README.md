@@ -17,8 +17,8 @@ npm install -g allure-commandline --save-dev
 ```bash
 npm run wdio
 ```
-This runs the tests and generates raw Allure results in:
 
+This runs the tests and generates raw Allure results in:
 
 ### 2. Generate and View the Allure HTML Report
 
@@ -35,4 +35,3 @@ npm run allure:open
 ```
 
 ---
-

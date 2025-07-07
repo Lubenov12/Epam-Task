@@ -1,4 +1,4 @@
-export const config = {
+const config = {
   //
   // ====================
   // Runner Configuration
@@ -380,4 +380,8 @@ export const config = {
    */
   // afterAssertion: function(params) {
   // }
+};
+
+module.exports = {
+  config,
 };

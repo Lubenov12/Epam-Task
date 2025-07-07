@@ -45,7 +45,7 @@ When(
   "I fill in an email that is already registered and submit the form",
   async () => {
     await fillForm(true);
-  }
+  },
 );
 
 Then("I should be redirected to the login page", async () => {
@@ -57,7 +57,7 @@ Then("I should be redirected to the login page", async () => {
 
 Then("I should see an error message", async () => {
   await expect(pages("register").errorMessage).toHaveText(
-    "A customer with this email address already exists."
+    "A customer with this email address already exists.",
   );
 });
 
