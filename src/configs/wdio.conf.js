@@ -4,7 +4,7 @@ const config = {
   // Runner Configuration
   // ====================
   // WebdriverIO supports running e2e tests as well as unit and component tests.
-  runner: "local",
+  runner: 'local',
   //
   // ==================
   // Specify Test Files
@@ -20,7 +20,7 @@ const config = {
   // The path of the spec files will be resolved relative from the directory of
   // of the config file unless it's absolute.
   //
-  specs: ["../features/**/*.feature"],
+  specs: ['../features/**/*.feature'],
   // Patterns to exclude.
   exclude: [
     // 'path/to/excluded/files'
@@ -50,16 +50,16 @@ const config = {
   capabilities: [
     {
       maxInstances: 1,
-      browserName: "chrome",
-      "goog:chromeOptions": {
-        args: ["headless", "disable-gpu"],
+      browserName: 'chrome',
+      'goog:chromeOptions': {
+        args: ['headless', 'disable-gpu'],
       },
     },
     {
       maxInstances: 1,
-      browserName: "firefox",
-      "moz:firefoxOptions": {
-        args: ["-headless"],
+      browserName: 'firefox',
+      'moz:firefoxOptions': {
+        args: ['-headless'],
       },
     },
 
@@ -75,7 +75,7 @@ const config = {
   // Define all options that are relevant for the WebdriverIO instance here
   //
   // Level of logging verbosity: trace | debug | info | warn | error | silent
-  logLevel: "error",
+  logLevel: 'error',
   //
   // Set specific log levels per logger
   // loggers:
@@ -99,7 +99,7 @@ const config = {
   // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
   // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
   // gets prepended directly.
-  baseUrl: "https://practicesoftwaretesting.com",
+  baseUrl: 'https://practicesoftwaretesting.com',
   //
   // Default timeout for all waitFor* commands.
   waitforTimeout: 10000,
@@ -124,7 +124,7 @@ const config = {
   // Make sure you have the wdio adapter package for the specific framework installed
   // before running any tests.
 
-  framework: "cucumber",
+  framework: 'cucumber',
 
   //
   // The number of times to retry the entire specfile when it fails as a whole
@@ -140,11 +140,11 @@ const config = {
   // The only one supported by default is 'dot'
   // see also: https://webdriver.io/docs/dot-reporter
   reporters: [
-    "spec",
+    'spec',
     [
-      "allure",
+      'allure',
       {
-        outputDir: "./src/configs/logs/allure-results",
+        outputDir: './src/configs/logs/allure-results',
         disableWebdriverStepsReporting: true,
         disableWebdriverScreenshotsReporting: true,
       },
@@ -155,10 +155,10 @@ const config = {
   cucumberOpts: {
     // <string[]> (file/dir) require files before executing features
     require: [
-      "./src/features/step-definitions/login-steps.cjs",
-      "./src/features/step-definitions/register-steps.cjs",
-      "./src/features/step-definitions/cart-steps.cjs",
-      "./src/features/step-definitions/product-steps.cjs",
+      './src/features/step-definitions/login-steps.cjs',
+      './src/features/step-definitions/register-steps.cjs',
+      './src/features/step-definitions/cart-steps.cjs',
+      './src/features/step-definitions/product-steps.cjs',
     ],
     // <boolean> show full backtrace for errors
     backtrace: false,
@@ -177,7 +177,7 @@ const config = {
     // <boolean> fail if there are any undefined or pending steps
     strict: false,
     // <string> (expression) only execute the features or scenarios with tags matching the expression
-    tagExpression: "",
+    tagExpression: '',
     // <number> timeout for step definitions
     timeout: 60000,
   },

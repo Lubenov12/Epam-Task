@@ -1,11 +1,11 @@
-const { BasePage } = require("./base.page");
+const { BasePage } = require('./base.page');
 
 class ProductPage extends BasePage {
   constructor(path) {
     super(browser.options.url + path);
   }
   get addCartBtn() {
-    return $("#btn-add-to-cart");
+    return $('#btn-add-to-cart');
   }
 }
 

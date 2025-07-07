@@ -5,16 +5,16 @@ class BasePage {
 
   navmenu(item) {
     item = item.toLowerCase();
-    const navbar = $("#navbarSupportedContent");
+    const navbar = $('#navbarSupportedContent');
     switch (item) {
-      case "home":
+      case 'home':
         return navbar.$("a[data-test='nav-home']");
-      case "sign in":
+      case 'sign in':
         return navbar.$("a[data-test='nav-sign-in']");
-      case "cart":
+      case 'cart':
         return navbar.$("a[aria-label='cart']");
       default:
-        throw new Error("Unknown link");
+        throw new Error('Unknown link');
     }
   }
   open() {

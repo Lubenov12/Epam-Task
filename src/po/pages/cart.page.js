@@ -1,14 +1,14 @@
-const { BasePage } = require("./base.page");
+const { BasePage } = require('./base.page');
 
 class CartPage extends BasePage {
   constructor() {
-    super("/checkout");
+    super('/checkout');
   }
   get items() {
-    return $("tbody");
+    return $('tbody');
   }
   get removeItemBtn() {
-    return $("a.btn-danger");
+    return $('a.btn-danger');
   }
 }
 

@@ -1,23 +1,23 @@
-const { BasePage } = require("./base.page");
+const { BasePage } = require('./base.page');
 
 class LoginPage extends BasePage {
   constructor() {
-    super("/auth/login");
+    super('/auth/login');
   }
   get email() {
-    return $("input#email");
+    return $('input#email');
   }
   get password() {
-    return $("input#password");
+    return $('input#password');
   }
   get loginButton() {
-    return $("input.btnSubmit");
+    return $('input.btnSubmit');
   }
   get registerAccount() {
     return $("a[data-test='register-link']");
   }
   get errorBlock() {
-    return $(".help-block");
+    return $('.help-block');
   }
 }
 

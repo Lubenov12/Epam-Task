@@ -1,8 +1,8 @@
-const { RegisterPage } = require("./register.page");
-const { HomePage } = require("./home.page");
-const { LoginPage } = require("./login.page");
-const { CartPage } = require("./cart.page");
-const { ProductPage } = require("./product.page");
+const { RegisterPage } = require('./register.page');
+const { HomePage } = require('./home.page');
+const { LoginPage } = require('./login.page');
+const { CartPage } = require('./cart.page');
+const { ProductPage } = require('./product.page');
 /**
  * Description of what the function does.
  *
