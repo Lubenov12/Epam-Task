@@ -1,3 +1,4 @@
+@ui-test
 Feature: User Registration
 
   Scenario: Successful user registration

@@ -49,14 +49,12 @@ export const config = {
   //
   capabilities: [
     {
-      maxInstances: 1,
       browserName: "chrome",
       "goog:chromeOptions": {
         args: ["headless", "disable-gpu"],
       },
     },
     {
-      maxInstances: 1,
       browserName: "firefox",
       "moz:firefoxOptions": {
         args: ["-headless"],
