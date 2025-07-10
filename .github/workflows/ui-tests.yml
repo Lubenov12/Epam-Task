@@ -2,7 +2,7 @@ name: Run UI Tests with @ui-test Tag
 
 on:
   push:
-    branches: [main]
+    branches: [Task_12]
 
 jobs:
   ui-tests:
