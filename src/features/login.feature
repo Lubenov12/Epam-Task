@@ -1,4 +1,3 @@
-@ui-test
 Feature: User Login
 
   Scenario: Successful login

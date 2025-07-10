@@ -1,0 +1,25 @@
+name: Run UI Tests with @ui-test Tag
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  ui-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tagged UI tests (@ui-test)
+        run: npm run ui-tests
