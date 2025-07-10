@@ -51,15 +51,21 @@ export const config = {
     {
       browserName: "chrome",
       "goog:chromeOptions": {
-        args: ["headless", "disable-gpu"],
+        args: [
+          "--headless",
+          "--disable-gpu",
+          "--window-size=1920,1080",
+          "--no-sandbox",
+          "--disable-dev-shm-usage",
+        ],
       },
     },
-    {
-      browserName: "firefox",
-      "moz:firefoxOptions": {
-        args: ["-headless"],
-      },
-    },
+    // {
+    //   browserName: "firefox",
+    //   "moz:firefoxOptions": {
+    //     args: ["-headless"],
+    //   },
+    // },
 
     //{
     //   browserName: "safari technology preview", // Safari doesn't support headless
