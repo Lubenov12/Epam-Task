@@ -11,7 +11,6 @@
   "scripts": {
     "ui-tests": "wdio run src/configs/wdio.conf.js --cucumberOpts.tagExpression='@ui-test'",
     "wdio": "wdio run ./src/configs/wdio.conf.js",
-    "tags": "wdio run ./src/configs/wdio.conf.js --cucumber.Opts.tags='@ui-test'",
     "allure:generate": "allure generate ./src/configs/logs/allure-results --clean -o ./src/configs/logs/allure-report",
     "allure:open": "allure open ./src/configs/logs/allure-report"
   }
